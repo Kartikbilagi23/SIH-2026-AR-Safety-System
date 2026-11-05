@@ -1,140 +1,185 @@
-# SIH Mine Safety & Vocational Training Platform
+# AR-Based Industrial Safety & Vocational Training Simulator
 
-A technology-driven **Mine Safety Management and Vocational Training Platform** developed for a Smart India Hackathon (SIH) problem statement associated with Jharkhand.
+An AR-powered industrial safety and vocational training platform proposed for mining and manufacturing workers in Jharkhand, developed under the Smart India Hackathon (SIH).
 
-The project aims to improve workplace safety, worker monitoring and vocational training through a combination of real-time monitoring, interactive safety visualization, Augmented Reality (AR) and Machine Learning.
+The platform aims to transform conventional safety training into interactive, scenario-based learning experiences using Augmented Reality, 3D simulations and digital assessment.
 
-> **Current Prototype:** An administrative dashboard for worker monitoring, multilingual accessibility and safety report generation. AR training and AI-powered hazard detection are part of the broader planned system.
+> **Current Development Status:** Working administrative dashboard prototype with multilingual support, safety report generation and real-time worker-location monitoring. The Unity-based AR training simulator and intelligent hazard detection are part of the proposed system roadmap.
 
-## Overview
+## Problem Statement
 
-Mining and industrial environments involve significant occupational safety challenges. This platform aims to provide administrators and safety officers with a centralized system to monitor workers, visualize safety-related information and manage safety operations.
+Traditional industrial safety training often relies on classroom lectures, videos, posters and theoretical demonstrations.
 
-The broader vision combines a digital safety management dashboard with an AR-based vocational training simulator and intelligent hazard detection capabilities.
+Workers may not get sufficient opportunities to practice responding to dangerous workplace situations.
 
-## Current Prototype Features
+This project proposes an interactive training environment where workers can experience simulated industrial hazards, practice safety procedures and receive measurable performance feedback.
 
-- **Administrative Dashboard:** Centralized interface for monitoring and managing safety-related information.
-- **Real-Time Worker Monitoring:** WebSocket-based communication for receiving and updating worker location information.
-- **Multilingual Support:** Language accessibility to make the platform usable by workers and administrators from different linguistic backgrounds.
-- **Report Generation:** Generate safety-related reports for monitoring and administrative purposes.
-- **Interactive Safety Visualization:** Foundation for visualizing workplace safety information and worker locations.
+## Proposed Solution
 
-## Planned Features & Future Scope
+The platform consists of three major components:
 
-- **AR-Based Vocational Training:** Immersive training simulations to help workers understand safety procedures and workplace scenarios.
-- **AI-Based Hazard Detection:** YOLO and OpenCV-based computer vision for identifying potential hazards.
-- **Digital Safety Map:** Interactive 2D representation of mine/factory layouts, safety zones, reported hazards and unresolved corrective actions.
-- **Worker Safety Monitoring:** Periodic worker-location updates to identify whether workers are within designated safe or hazardous zones.
-- **Training Scenarios:** Simulated workplace situations for practical safety training.
-- **Safety Analytics:** Visual dashboards and insights for safety monitoring and decision-making.
+1. **Android AR Application:** Interactive 3D and AR-based industrial safety training for workers.
+2. **Backend Services:** Authentication, training modules, scenarios, assessments, progress and certificate management.
+3. **Web Administration Portal:** Worker monitoring, training management, reports and analytics for administrators and trainers.
+
+## Key Features
+
+### Current Prototype
+
+- Administrative dashboard for safety management.
+- Multilingual interface.
+- Safety report generation.
+- Real-time worker-location updates using WebSockets.
+- Backend API and database integration.
+
+### Proposed System Capabilities
+
+- AR-based industrial safety training using Unity and AR Foundation.
+- Interactive 3D mining and manufacturing environments.
+- Simulated fire, gas leakage, electrical and equipment hazards.
+- PPE identification and emergency response training.
+- Scenario-based assessments and automated scoring.
+- Worker training progress tracking.
+- Digital certificates with QR-based verification.
+- Offline training and synchronization.
+- YOLO and OpenCV-based hazard detection (planned).
+- Training analytics for administrators and trainers.
+
+## Example Training Workflow
+
+**Gas Leakage Safety Scenario**
+
+1. Enter a simulated mining environment.
+2. Identify the gas leakage warning.
+3. Select appropriate protective equipment.
+4. Avoid contaminated zones.
+5. Raise an emergency alarm.
+6. Navigate towards a safe evacuation point.
+7. Complete the assessment.
+8. Receive a score and feedback.
+
+## Proposed Training Modules
+
+| Module | Training Scenario |
+|---|---|
+| Fire & Explosion Safety | Fire identification and emergency evacuation |
+| Gas Leak / Confined Space | Hazard recognition and safe evacuation |
+| PPE Safety | Identification and selection of protective equipment |
+| Electrical Safety | Electrical hazard recognition |
+| Machinery Safety | Safe equipment operation |
+| First Aid | Emergency response procedures |
+
+The initial MVP focuses on two polished training scenarios: Fire Safety and Gas Leak / Confined Space Safety.
 
 ## Technology Stack
 
-| Layer | Technology | Status |
-|---|---|---|
-| Frontend | React + TypeScript | Implemented |
-| Styling | CSS | Implemented |
-| 2D Safety Map | SVG | Planned / integration |
-| Backend | Node.js + Express + TypeScript | Implemented |
-| Database | PostgreSQL + Prisma | Implemented |
-| Real-Time Updates | Socket.IO | Implemented |
-| Authentication | JWT | Implemented |
-| Computer Vision | YOLO + OpenCV | Planned |
-| Augmented Reality | Existing AR training implementation | Integration planned |
-| Charts & Analytics | Recharts / Chart.js | Planned / integration |
-| File Storage | Image and document storage | Planned |
-| Deployment | Docker | Planned / integration |
+### Mobile & AR
+- Unity
+- C#
+- AR Foundation
+- Google ARCore
+- Blender for 3D assets
+
+### Web Application
+- React
+- TypeScript
+- CSS / Tailwind CSS
+- SVG-based safety visualization
+- Recharts / Chart.js
+
+### Backend
+- Node.js
+- Express.js
+- TypeScript
+- JWT Authentication
+- Role-Based Access Control (RBAC)
+- Socket.IO
+
+### Database & Storage
+- PostgreSQL
+- Prisma ORM
+- Redis (caching and temporary data)
+- Image and document storage
+
+### DevOps & Infrastructure
+- Docker
+- Nginx
+- Git & GitHub
 
 ## System Architecture
 
-The platform is designed around a modular architecture:
-
-1. **Frontend Layer:** Provides the administrative interface, monitoring dashboard and multilingual user experience.
-2. **Backend Layer:** Handles application APIs, authentication, business logic and communication between system components.
-3. **Database Layer:** PostgreSQL stores application data, with Prisma managing database interactions.
-4. **Real-Time Layer:** Socket.IO enables live communication and worker-location updates.
-5. **Intelligence Layer (Future):** YOLO and OpenCV for computer vision and hazard detection.
-6. **Training Layer (Future Integration):** AR-based vocational training simulations.
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js
-- npm
-- PostgreSQL
-- Git
-
-### Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/sih-mine-safety-platform.git
-
-cd sih-mine-safety-platform
+```text
+                 WORKER
+                    |
+                    v
+          ANDROID AR APPLICATION
+             Unity + ARCore
+                    |
+                    v
+          Training & Assessment
+                    |
+                    v
+              BACKEND API
+          Node.js + Express
+                    |
+             +------+------+
+             |             |
+             v             v
+        PostgreSQL       Redis
+             |
+             v
+       Training Data
+       Scores / Progress
+       Certificates
+             |
+             v
+       WEB ADMIN PORTAL
+        React + TypeScript
+             |
+       +-----+------+
+       |            |
+       v            v
+   Monitoring    Analytics
+   & Reports     & Management
 ```
 
-Install frontend and backend dependencies from their respective directories:
+## Proposed MVP
 
-```bash
-cd frontend
-npm install
-```
+- Android AR training application.
+- Two interactive safety scenarios.
+- Worker authentication.
+- Scenario-based assessment.
+- Automated scoring and feedback.
+- Backend and PostgreSQL integration.
+- Administrative dashboard.
+- Training progress analytics.
+- Certificate generation and verification.
 
-```bash
-cd ../backend
-npm install
-```
+## Project Roadmap
 
-### Environment Configuration
-
-Configure the required environment variables using `.env.example` files.
-
-Example:
-
-```env
-DATABASE_URL=
-JWT_SECRET=
-PORT=
-```
-
-
-### Database Setup
-
-Configure your PostgreSQL database and run the Prisma migrations according to the backend setup.
-
-### Running the Application
-
-Refer to the frontend and backend package scripts for the development commands.
+- [x] Administrative dashboard prototype.
+- [x] Multilingual support.
+- [x] Safety report generation.
+- [x] WebSocket-based worker-location updates.
+- [ ] Digital safety map integration.
+- [ ] Unity-based AR training application.
+- [ ] Fire safety training scenario.
+- [ ] Gas leakage training scenario.
+- [ ] Assessment and scoring engine.
+- [ ] Worker progress and certificate management.
+- [ ] Offline training synchronization.
+- [ ] YOLO + OpenCV hazard detection.
 
 ## Project Assets
 
-Large ML models, datasets and demonstration videos are hosted separately due to repository size constraints.
+Large datasets, trained models and demonstration videos are hosted externally due to repository size constraints.
 
-**[Access Project Assets – Google Drive](YOUR_GOOGLE_DRIVE_LINK)**
-
-## Screenshots & Demonstration
-
-Screenshots of the administrative dashboard, worker monitoring interface and other implemented modules will be added here.
-
-## Development Roadmap
-
-- [x] Administrative dashboard prototype
-- [x] Multilingual interface
-- [x] Safety report generation
-- [x] WebSocket-based live worker-location updates
-- [ ] Digital safety map integration
-- [ ] AR vocational training integration
-- [ ] YOLO + OpenCV hazard detection
-- [ ] Safety analytics and visualization
-- [ ] Containerized deployment
+**[Access Project Assets on Google Drive](YOUR_GOOGLE_DRIVE_LINK)**
 
 ## Project Context
 
-Developed as part of the Smart India Hackathon initiative for a mine safety and vocational training problem statement associated with Jharkhand.
+Developed as part of the Smart India Hackathon initiative for an industrial safety and vocational training problem associated with Jharkhand.
 
 ## License
 
-License and redistribution permissions to be finalized.
+To be determined based on project ownership and SIH publication permissions.
