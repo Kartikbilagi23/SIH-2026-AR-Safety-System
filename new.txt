@@ -1,0 +1,646 @@
+AR-Based Vocational Training Simulator for Industrial Safety
+Proposed Technology Stack & System Working — Hinglish Report
+1. Project Overview
+
+Humara project Jharkhand ke mining aur manufacturing sector ke workers ke liye AR-based industrial safety training platform hoga.
+
+Traditional safety training mein workers ko mostly:
+
+classroom lectures
+videos
+PDFs
+posters
+theoretical demonstrations
+
+ke through train kiya jata hai.
+
+Hamare system mein worker interactive 3D/AR scenarios ke through safety procedures practice karega.
+
+For example:
+
+Worker ko ek mining/factory environment diya jayega jahan gas leakage, fire, electrical hazard, unsafe equipment, emergency exit jaise situations create hongi.
+
+Worker ko situation identify karke correct action perform karna hoga.
+
+Example:
+
+Gas Leak Detected
+       ↓
+Identify Hazard
+       ↓
+Select Correct PPE
+       ↓
+Avoid Dangerous Zone
+       ↓
+Find Emergency Exit
+       ↓
+Trigger Emergency Procedure
+       ↓
+Assessment
+       ↓
+Score + Feedback
+       ↓
+Certificate
+2. Overall System
+
+System ko hum 3 major components mein divide karenge:
+
+                 SAFETY TRAINING SYSTEM
+                         │
+          ┌──────────────┼──────────────┐
+          ↓              ↓              ↓
+     Android AR       Backend        Web Portal
+      Simulator         API          Dashboard
+          │              │              │
+          │              ↓              │
+          │         PostgreSQL          │
+          │              +              │
+          │            Redis             │
+          │              │              │
+          └──────────────┴──────────────┘
+Component 1 — Android AR Application
+
+Worker ke liye actual training application.
+
+Component 2 — Backend
+
+Authentication, training modules, scenarios, scores, progress, certificates etc. manage karega.
+
+Component 3 — Web Dashboard
+
+Admin/trainer ke liye training management aur analytics platform.
+
+3. Technology Stack
+📱 A. AR / Android Application
+Unity
+
+Language: C#
+
+Unity mein hum interactive 3D training environment create karenge.
+
+Example:
+
+Mine Environment
+       ↓
+Tunnel
+       ↓
+Mining Equipment
+       ↓
+Worker
+       ↓
+Gas Leak
+       ↓
+Fire
+       ↓
+Emergency Exit
+
+Unity ka use isliye karenge kyunki hume normal Android application se zyada 3D interactive simulation + AR capabilities chahiye.
+
+AR Foundation
+
+AR Foundation Unity ka framework hai jisse Android/iOS AR applications develop ki ja sakti hain.
+
+Iska use:
+
+plane detection
+surface tracking
+object placement
+camera-based AR
+interaction
+
+ke liye hoga.
+
+Google ARCore
+
+Android devices par actual AR functionality provide karega.
+
+Example:
+
+Phone Camera
+     ↓
+Detect Floor
+     ↓
+Detect Surface
+     ↓
+Place Virtual Hazard
+     ↓
+User interacts with Hazard
+3D Assets
+
+3D models:
+
+mining equipment
+factory machines
+PPE
+fire extinguisher
+gas cylinder
+warning signs
+emergency exits
+workers
+safety barriers
+
+ke liye Blender ya suitable 3D asset sources use kiye ja sakte hain.
+
+4. 🌐 Web Application
+
+Web application mainly Admin / Trainer Portal hoga.
+
+Frontend
+
+React + TypeScript + Tailwind CSS
+
+Dashboard mein:
+
+Dashboard
+Workers
+Training Modules
+Scenarios
+Assessments
+Progress
+Certificates
+Analytics
+Settings
+
+Example:
+
+┌───────────────────────────────────────────────┐
+│              SAFETY TRAINING                  │
+├─────────────┬─────────────────────────────────┤
+│ Dashboard   │                                 │
+│             │   Total Workers       1,284     │
+│ Workers     │   Modules Completed   3,721     │
+│             │   Pass Rate            87%      │
+│ Modules     │                                 │
+│             │   Training Analytics            │
+│ Assessment  │        📈                       │
+│             │                                 │
+│ Certificates│   Recent Attempts              │
+│             │   Worker | Module | Score      │
+│ Analytics   │                                 │
+└─────────────┴─────────────────────────────────┘
+
+Web application AR simulator ka replacement nahi hogi.
+
+It will be the management and monitoring layer.
+
+5. ⚙️ Backend
+Node.js + Express + TypeScript
+
+Tumhara existing backend experience directly reuse ho sakta hai.
+
+Backend responsibilities:
+
+authentication
+authorization
+user management
+training modules
+scenarios
+questions
+attempts
+scores
+progress
+certificates
+analytics
+AR app synchronization
+
+API example:
+
+POST   /api/auth/login
+
+GET    /api/modules
+
+GET    /api/modules/:id
+
+GET    /api/scenarios/:id
+
+POST   /api/attempts
+
+GET    /api/workers/:id/progress
+
+GET    /api/certificates
+
+GET    /api/certificates/:id/verify
+
+GET    /api/admin/analytics
+6. 🗄️ Database
+PostgreSQL + Prisma
+
+PostgreSQL mein system ka structured data store hoga.
+
+Possible entities:
+
+User
+TrainingModule
+Scenario
+ScenarioObject
+Question
+Assessment
+Attempt
+Answer
+Progress
+Certificate
+CertificateVerification
+
+Example:
+
+User
+ ├── id
+ ├── name
+ ├── role
+ └── language
+
+TrainingModule
+ ├── id
+ ├── title
+ ├── category
+ └── difficulty
+
+Scenario
+ ├── id
+ ├── moduleId
+ ├── title
+ └── description
+
+Attempt
+ ├── id
+ ├── userId
+ ├── scenarioId
+ ├── score
+ ├── completed
+ └── timeTaken
+7. ⚡ Redis
+
+Redis optional but useful rahega.
+
+Use cases:
+
+frequently accessed training modules cache karna
+session/token related data
+leaderboard/statistics caching
+temporary assessment data
+API performance improve karna
+
+For MVP, Redis ko non-critical rakhenge. Agar deadline tight ho toh PostgreSQL + backend se start kar sakte hain.
+
+8. 🔐 Authentication & Authorization
+
+JWT based authentication.
+
+Roles:
+
+ADMIN
+TRAINER
+WORKER
+Worker
+
+Sirf apni:
+
+training
+attempts
+scores
+progress
+certificates
+
+access karega.
+
+Trainer
+
+Workers aur training progress monitor kar sakta hai.
+
+Admin
+
+Complete system manage karega.
+
+9. 🔥 Training Scenario Working
+
+Suppose hum Fire Safety Module bana rahe hain.
+
+Worker application open karta hai:
+
+Fire Safety Training
+        ↓
+Start Scenario
+        ↓
+3D / AR Environment
+        ↓
+Fire Hazard Appears
+        ↓
+Worker identifies hazard
+        ↓
+Select PPE
+        ↓
+Select Fire Extinguisher
+        ↓
+Locate Emergency Exit
+        ↓
+Perform Correct Action
+        ↓
+Scenario Completed
+
+Har action ke basis par score calculate hoga.
+
+Example:
+
+Hazard identified       +20
+Correct PPE             +20
+Correct extinguisher    +20
+Correct evacuation      +30
+Unsafe action            -10
+--------------------------------
+Total                    80/100
+
+Then:
+
+80/100
+
+PASS ✅
+
+Feedback:
+Good hazard identification.
+Improve evacuation response time.
+10. ⛏️ Possible Training Modules
+
+MVP mein 2 polished modules banana better rahega rather than 8 half-completed modules.
+
+Module 1 — Fire & Explosion Safety
+
+Scenario:
+
+🔥 Fire detected
+      ↓
+Identify fire
+      ↓
+Select extinguisher
+      ↓
+Follow safe distance
+      ↓
+Emergency exit
+Module 2 — Gas Leak / Confined Space Safety
+☠️ Gas Leak
+      ↓
+Recognize warning signs
+      ↓
+Wear correct PPE
+      ↓
+Avoid contaminated area
+      ↓
+Raise alarm
+      ↓
+Move to safe zone
+
+Future modules:
+
+Electrical Safety
+PPE Training
+Machinery Safety
+Mine Collapse/Emergency
+Chemical Handling
+First Aid
+
+Architecture modular rakhenge, so future mein modules add karna easy ho.
+
+11. 📱 Offline Functionality
+
+Ye important part hai because industrial/mining locations mein reliable internet har jagah available nahi ho sakta.
+
+Isliye Android application mein required training content locally available rakhenge.
+
+Internet Available
+       ↓
+Download Training Module
+       ↓
+Local Device Storage
+       ↓
+Worker can train offline
+       ↓
+Score stored locally
+       ↓
+Internet comes back
+       ↓
+Sync with Backend
+
+Example:
+
+Local Attempt
+
+attemptId
+scenarioId
+score
+answers
+timestamp
+syncStatus = PENDING
+
+Internet available hone par:
+
+PENDING
+   ↓
+POST /api/attempts/sync
+   ↓
+Backend
+   ↓
+syncStatus = SYNCED
+12. 🌐 Web Dashboard Working
+
+Admin login karega:
+
+Admin
+ ↓
+Dashboard
+
+Dashboard par:
+
+Total Workers
+Active Workers
+Training Completion
+Average Score
+Pass Rate
+Certificates
+Worker Management
+
+Admin dekh sakta hai:
+
+Worker
+Module
+Attempts
+Average Score
+Completion
+Certificate
+Training Management
+
+Admin:
+
+Create Module
+      ↓
+Add Scenario
+      ↓
+Add Questions
+      ↓
+Set Passing Score
+      ↓
+Publish
+
+Published module Android app ko API ke through available ho jayega.
+
+13. 📊 Analytics
+
+Web dashboard mein analytics:
+
+Training Completion
+       📈
+
+Pass vs Fail
+       📊
+
+Average Score
+       📈
+
+Module-wise Performance
+       📊
+
+Worker Progress
+       📋
+
+Example:
+
+Fire Safety        91% Pass
+Gas Safety         78% Pass
+PPE Training       95% Pass
+Electrical Safety  72% Pass
+
+Admin identify kar sakta hai ki kaunsa safety topic workers ko difficult lag raha hai.
+
+14. 🏆 Certificate System
+
+Training successfully complete hone ke baad:
+
+Worker
+  ↓
+Complete Training
+  ↓
+Pass Assessment
+  ↓
+Certificate Generated
+  ↓
+Unique Certificate ID
+  ↓
+QR Code
+
+QR scan karne par:
+
+Certificate Verification
+
+Certificate ID: SAF-2026-00124
+Worker: XXXXX
+Module: Fire Safety
+Score: 87%
+Status: VERIFIED ✅
+
+Isse certificate verification easy ho jayega.
+
+15. 🔄 Complete System Flow
+
+Ye main architecture flow report mein daal sakte ho:
+
+                    ┌────────────────────┐
+                    │      WORKER        │
+                    └─────────┬──────────┘
+                              │
+                              ↓
+                   ┌────────────────────┐
+                   │ Android AR App     │
+                   │ Unity + ARCore     │
+                   └─────────┬──────────┘
+                             │
+                   Training Scenario
+                             │
+                             ↓
+                    Interaction/Assessment
+                             │
+                             ↓
+                         Score
+                             │
+                             ↓
+                    ┌────────────────────┐
+                    │ Backend API        │
+                    │ Node + Express     │
+                    └─────────┬──────────┘
+                              │
+                     ┌────────┴────────┐
+                     ↓                 ↓
+                PostgreSQL           Redis
+                     │
+                     ↓
+                Progress/
+                Attempts/
+                Certificates
+                     │
+                     ↓
+             ┌───────────────────┐
+             │ React Web Portal  │
+             │ Admin / Trainer   │
+             └───────────────────┘
+                     │
+                     ↓
+              Analytics & Reports
+16. 🧰 Final Tech Stack
+Mobile / AR
+Technology	Purpose
+Unity	3D simulation
+C#	Unity programming
+AR Foundation	AR framework
+Google ARCore	Android AR
+Blender	3D asset creation/editing
+Web
+Technology	Purpose
+React	Web frontend
+TypeScript	Type-safe development
+Tailwind CSS	UI
+Recharts / Chart.js	Analytics
+Backend
+Technology	Purpose
+Node.js	Runtime
+Express.js	REST API
+TypeScript	Backend development
+JWT	Authentication
+RBAC	Role management
+Data
+Technology	Purpose
+PostgreSQL	Main database
+Prisma	ORM
+Redis	Caching / temporary data
+DevOps
+Technology	Purpose
+Docker	Containerization
+Nginx	Reverse proxy
+Git/GitHub	Version control
+
+Tech stack ka basic idea hi ye hai ki frontend, backend, database aur infrastructure ko ek integrated system ke roop mein use karke complete application banaya jaye.
+
+17. 🎯 MVP — Actually Kya Banana Hai?
+
+Bro, scope control sabse important hai.
+
+SIH demo ke liye:
+
+Must Have
+✅ Android AR application
+✅ 3D industrial environment
+✅ 2 complete safety scenarios
+✅ Interactive hazards
+✅ Assessment
+✅ Score
+✅ Worker login
+✅ Backend API
+✅ PostgreSQL
+✅ Admin web dashboard
+✅ Progress analytics
+✅ Certificate + QR verification
+Later / Optional
+🟡 Redis
+🟡 Advanced analytics
+🟡 More scenarios
+🟡 AI-based assessment
+🟡 Voice instructions
+🟡 More languages
+
+Kafka, Kubernetes, blockchain, microservices etc. add karne ki zarurat nahi hai unless some actual requirement emerges. Project ka core value AR safety training + measurable assessment + admin monitoring hai.

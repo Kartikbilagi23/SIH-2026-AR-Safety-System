@@ -1,0 +1,241 @@
+{
+    "success": true,
+    "message": "Training session started",
+    "data": {
+        "sessionId": "cmv13ds2600004ovdvl7b88tz",
+        "module": {
+            "id": "cmupstbju00005cvd26ugsxd3",
+            "category": "FIRE_SAFETY",
+            "durationMin": 15,
+            "translations": [
+                {
+                    "id": "cmupstbvu00015cvdj7s6940l",
+                    "moduleId": "cmupstbju00005cvd26ugsxd3",
+                    "language": "EN",
+                    "title": "Fire & Explosion Safety",
+                    "description": "Learn how to identify and respond to fire hazards."
+                },
+                {
+                    "id": "cmupstbvu00025cvd1rva1dei",
+                    "moduleId": "cmupstbju00005cvd26ugsxd3",
+                    "language": "HI",
+                    "title": "आग और विस्फोट सुरक्षा",
+                    "description": "आग के खतरों की पहचान और प्रतिक्रिया करना सीखें।"
+                }
+            ]
+        },
+        "questions": [
+            {
+                "id": "cmupt9n9t0000d8vdibe3l4rd",
+                "translations": [
+                    {
+                        "id": "cmupt9niw0001d8vdeab4rz6c",
+                        "questionId": "cmupt9n9t0000d8vdibe3l4rd",
+                        "language": "EN",
+                        "question": "Which extinguisher is commonly suitable for an electrical fire?",
+                        "options": [
+                            "Water",
+                            "Wet chemical",
+                            "CO2",
+                            "Sand"
+                        ]
+                    },
+                    {
+                        "id": "cmupt9niw0002d8vdpagoaol3",
+                        "questionId": "cmupt9n9t0000d8vdibe3l4rd",
+                        "language": "HI",
+                        "question": "विद्युत आग के लिए सामान्यतः कौन सा अग्निशामक उपयुक्त है?",
+                        "options": [
+                            "पानी",
+                            "वेट केमिकल",
+                            "CO2",
+                            "रेत"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+amit kumar
+{
+    "success": true,
+    "message": "Training session started",
+    "data": {
+        "sessionId": "cmv13f14t00014ovdokf6rens",
+        "module": {
+            "id": "cmupstbju00005cvd26ugsxd3",
+            "category": "FIRE_SAFETY",
+            "durationMin": 15,
+            "translations": [
+                {
+                    "id": "cmupstbvu00015cvdj7s6940l",
+                    "moduleId": "cmupstbju00005cvd26ugsxd3",
+                    "language": "EN",
+                    "title": "Fire & Explosion Safety",
+                    "description": "Learn how to identify and respond to fire hazards."
+                },
+                {
+                    "id": "cmupstbvu00025cvd1rva1dei",
+                    "moduleId": "cmupstbju00005cvd26ugsxd3",
+                    "language": "HI",
+                    "title": "आग और विस्फोट सुरक्षा",
+                    "description": "आग के खतरों की पहचान और प्रतिक्रिया करना सीखें।"
+                }
+            ]
+        },
+        "questions": [
+            {
+                "id": "cmupt9n9t0000d8vdibe3l4rd",
+                "translations": [
+                    {
+                        "id": "cmupt9niw0001d8vdeab4rz6c",
+                        "questionId": "cmupt9n9t0000d8vdibe3l4rd",
+                        "language": "EN",
+                        "question": "Which extinguisher is commonly suitable for an electrical fire?",
+                        "options": [
+                            "Water",
+                            "Wet chemical",
+                            "CO2",
+                            "Sand"
+                        ]
+                    },
+                    {
+                        "id": "cmupt9niw0002d8vdpagoaol3",
+                        "questionId": "cmupt9n9t0000d8vdibe3l4rd",
+                        "language": "HI",
+                        "question": "विद्युत आग के लिए सामान्यतः कौन सा अग्निशामक उपयुक्त है?",
+                        "options": [
+                            "पानी",
+                            "वेट केमिकल",
+                            "CO2",
+                            "रेत"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+priya sharma
+{
+    "success": true,
+    "message": "Training session started",
+    "data": {
+        "sessionId": "cmv13fuwz00024ovd0j43mkfo",
+        "module": {
+            "id": "cmupstbju00005cvd26ugsxd3",
+            "category": "FIRE_SAFETY",
+            "durationMin": 15,
+            "translations": [
+                {
+                    "id": "cmupstbvu00015cvdj7s6940l",
+                    "moduleId": "cmupstbju00005cvd26ugsxd3",
+                    "language": "EN",
+                    "title": "Fire & Explosion Safety",
+                    "description": "Learn how to identify and respond to fire hazards."
+                },
+                {
+                    "id": "cmupstbvu00025cvd1rva1dei",
+                    "moduleId": "cmupstbju00005cvd26ugsxd3",
+                    "language": "HI",
+                    "title": "आग और विस्फोट सुरक्षा",
+                    "description": "आग के खतरों की पहचान और प्रतिक्रिया करना सीखें।"
+                }
+            ]
+        },
+        "questions": [
+            {
+                "id": "cmupt9n9t0000d8vdibe3l4rd",
+                "translations": [
+                    {
+                        "id": "cmupt9niw0001d8vdeab4rz6c",
+                        "questionId": "cmupt9n9t0000d8vdibe3l4rd",
+                        "language": "EN",
+                        "question": "Which extinguisher is commonly suitable for an electrical fire?",
+                        "options": [
+                            "Water",
+                            "Wet chemical",
+                            "CO2",
+                            "Sand"
+                        ]
+                    },
+                    {
+                        "id": "cmupt9niw0002d8vdpagoaol3",
+                        "questionId": "cmupt9n9t0000d8vdibe3l4rd",
+                        "language": "HI",
+                        "question": "विद्युत आग के लिए सामान्यतः कौन सा अग्निशामक उपयुक्त है?",
+                        "options": [
+                            "पानी",
+                            "वेट केमिकल",
+                            "CO2",
+                            "रेत"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+rahul sen niche
+{
+    "success": true,
+    "message": "Training session started",
+    "data": {
+        "sessionId": "cmv13gmn400034ovd56yneezd",
+        "module": {
+            "id": "cmupstbju00005cvd26ugsxd3",
+            "category": "FIRE_SAFETY",
+            "durationMin": 15,
+            "translations": [
+                {
+                    "id": "cmupstbvu00015cvdj7s6940l",
+                    "moduleId": "cmupstbju00005cvd26ugsxd3",
+                    "language": "EN",
+                    "title": "Fire & Explosion Safety",
+                    "description": "Learn how to identify and respond to fire hazards."
+                },
+                {
+                    "id": "cmupstbvu00025cvd1rva1dei",
+                    "moduleId": "cmupstbju00005cvd26ugsxd3",
+                    "language": "HI",
+                    "title": "आग और विस्फोट सुरक्षा",
+                    "description": "आग के खतरों की पहचान और प्रतिक्रिया करना सीखें।"
+                }
+            ]
+        },
+        "questions": [
+            {
+                "id": "cmupt9n9t0000d8vdibe3l4rd",
+                "translations": [
+                    {
+                        "id": "cmupt9niw0001d8vdeab4rz6c",
+                        "questionId": "cmupt9n9t0000d8vdibe3l4rd",
+                        "language": "EN",
+                        "question": "Which extinguisher is commonly suitable for an electrical fire?",
+                        "options": [
+                            "Water",
+                            "Wet chemical",
+                            "CO2",
+                            "Sand"
+                        ]
+                    },
+                    {
+                        "id": "cmupt9niw0002d8vdpagoaol3",
+                        "questionId": "cmupt9n9t0000d8vdibe3l4rd",
+                        "language": "HI",
+                        "question": "विद्युत आग के लिए सामान्यतः कौन सा अग्निशामक उपयुक्त है?",
+                        "options": [
+                            "पानी",
+                            "वेट केमिकल",
+                            "CO2",
+                            "रेत"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
